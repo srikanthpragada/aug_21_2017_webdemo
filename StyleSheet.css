@@ -1,0 +1,26 @@
+﻿body 
+{
+    font-family : Verdana;
+    font-size : 12pt;
+}
+
+h1 {
+    color  : blue; 
+    font-family :Arial;
+}
+
+.actionbutton
+{
+    background-color : red;
+    color:white;
+    font-family:Verdana;
+    font-size : 12pt;
+    font-weight : bold; 
+    width : 200px;
+}
+
+.result {
+    font-size : 14pt;
+    font-weight : bold;
+    color : green;
+}

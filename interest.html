@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Interest Calculation</title>
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <script>
+        function calculateInterest() {
+            var txtAmount = document.getElementById("amount");
+            var txtRate = document.getElementById("rate");
+            var divResult = document.getElementById("result");
+            var chkRound = document.getElementById("round");
+
+            var interest = txtAmount.value * txtRate.value / 100;
+
+            if (chkRound.checked)
+                interest = Math.round(interest);
+
+            divResult.innerText = interest; 
+        }
+    </script>
+</head>
+<body>
+    <h1>Interest Calculation</h1>
+    <table cellpadding="5px">
+        <tr>
+            <td>Amount :</td>
+            <td><input type="number"  id="amount"/> </td>
+        </tr>
+        <tr>
+            <td>Interest Rate :</td>
+            <td><input type="number" id="rate" /> </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"> <input type="checkbox" id="round" />Round Interest Amount </td>
+        </tr>
+
+    </table>
+    <p></p>
+    <button onclick="calculateInterest()" class="actionbutton">Calculate</button>
+    <p></p>
+    <div class="result" id="result"></div>
+
+</body>
+</html>
