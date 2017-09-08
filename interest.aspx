@@ -4,7 +4,7 @@
 
 <script runat="server">
 
-    protected void btnCalculate_Click(object sender, EventArgs e)
+    public void CalculatePrice()
     {
         double amount = Double.Parse(txtAmount.Text);
         double rate = Double.Parse(txtRate.Text);
@@ -15,6 +15,19 @@
             interest = Math.Round(interest);
 
         lblResult.Text = interest.ToString("c");
+    }
+    protected void btnCalculate_Click(object sender, EventArgs e)
+    {
+        CalculatePrice();
+    }
+
+    protected void chkRound_CheckedChanged(object sender, EventArgs e)
+    {
+        CalculatePrice();
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
 
     }
 </script>
@@ -33,7 +46,9 @@
       Interest Rate <br />
       <asp:TextBox ID="txtRate" runat="server"></asp:TextBox> 
       <p></p>
-      <asp:CheckBox ID="chkRound" runat="server" /> Round Interest Amount
+      <asp:CheckBox ID="chkRound" runat="server" 
+          AutoPostBack="true"
+          OnCheckedChanged="chkRound_CheckedChanged" /> Round Interest Amount
       <p></p>
       <asp:Button ID="btnCalculate" runat="server"
            CssClass="actionbutton"
