@@ -14,8 +14,11 @@
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update products set price = "
-                              + txtNewPrice.Text + " where prodid = " + txtProdId.Text, con);
+                SqlCommand cmd = new SqlCommand
+                    ("update products set price = @price where prodid = @prodid",con);
+
+                cmd.Parameters.AddWithValue("@price", txtNewPrice.Text);
+                cmd.Parameters.AddWithValue("@prodid", txtProdId.Text);
 
                 int count = cmd.ExecuteNonQuery();
                 if (count == 1)

@@ -14,19 +14,30 @@
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("update products set price = "
-                              + txtNewPrice.Text + " where prodid = " + txtProdId.Text, con);
 
-                int count = cmd.ExecuteNonQuery();
-                if (count == 1)
-                    lblMsg.Text = "Updated product successfully!";
-                else
-                    lblMsg.Text = "Sorry! Product Id Not Found!";
+                /* 
+                 CREATE PROCEDURE sp_update_price(@prodid int, @newprice money)
+                 AS
+                       update products set price = @newprice where prodid = @prodid
+
+	                   if @@rowcount = 0 
+	                       raiserror('Invalid Product Id',16,1);
+ 
+                */
+
+                SqlCommand cmd = new SqlCommand("sp_update_price",con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@newprice", txtNewPrice.Text);
+                cmd.Parameters.AddWithValue("@prodid", txtProdId.Text);
+
+                cmd.ExecuteNonQuery();
+                lblMsg.Text = "Updated product successfully!";
             }
             catch(Exception ex)
             {
                 Trace.Write("Error : " + ex.Message);
-                lblMsg.Text = "Sorry! Could not update price!";
+                lblMsg.Text = "Sorry! Could not update price! Error : " + ex.Message;
             }
 
 
