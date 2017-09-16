@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+
+</script>
+
+<html>
+<head runat="server">
+    <title>ASP.NET Demo</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="banner">ASP.NET Demo</div> 
+    <div class="menu">
+        <a href="AdoNet.aspx">Ado.net</a>
+        <a href="controls.aspx">Controls</a>
+        <a href="interest.aspx">Interest Calculation</a>
+        <a href="addphoto.aspx">Add Photo</a>
+    </div> 
+    <div>
+        <asp:ContentPlaceHolder id="cpBody" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    
+    </form>
+</body>
+</html>

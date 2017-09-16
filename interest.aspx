@@ -1,7 +1,4 @@
-﻿<%@ Page Language="C#" %>
-
-<!DOCTYPE html>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" %>
 <script runat="server">
 
     public void CalculatePrice()
@@ -32,14 +29,9 @@
     }
 </script>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-  <title>Interest Calculation</title>
-  <link href="StyleSheet.css" rel="stylesheet" />
-</head>
-<body>
-  <h1>Interest Calculation</h1>
-  <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cpBody" Runat="Server">
+     <h1>Interest Calculation</h1>
+
       Amount <br/>
       <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox>
       <p></p>
@@ -58,6 +50,4 @@
 
       <asp:Label CssClass="result" ID="lblResult" runat="server" Text=""></asp:Label>
   
-  </form>
-</body>
-</html>
+</asp:Content>

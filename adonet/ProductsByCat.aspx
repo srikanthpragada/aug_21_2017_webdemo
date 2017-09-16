@@ -18,7 +18,7 @@
 
 
   <asp:GridView ID="gvProducts" runat="server" Width="100%"
-       AutoGenerateColumns="False" 
+       AutoGenerateColumns="False"  SkinID="blueheader"
        EmptyDataText="Sorry! No products found!"
        DataKeyNames="prodid" DataSourceID="sdsProducts">
       <Columns>
@@ -33,6 +33,7 @@
               DataNavigateUrlFormatString="SalesByProd.aspx?id={0}&name={1}" 
               Text="Sales" />
       </Columns>
+      
       </asp:GridView>
 
 
